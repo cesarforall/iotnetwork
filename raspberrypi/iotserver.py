@@ -13,6 +13,7 @@ def index():
 #	"timestamp": "2024-08-28 12:34:56"
 #}
 
+# Endpoints de la API
 # Este endpoint maneja el método POST para subir los datos
 @app.post("/api/v1/upload")
 def upload_post():
@@ -45,8 +46,8 @@ def upload_post():
 			"error": "Datos no válidos o faltantes. Verifica que se envíen 'temperature', 'humidity' y 'timestamp'"
 		}), 400
 
-# data/latest -> GET envia el último dato subido
-# data/all -> GET envia todos los datos
+# /api/v1/data/latest -> GET envia el último dato subido
+# /api/v1/data/all -> GET envia todos los datos
 
 if __name__ == "__main__":
 	app.run()
