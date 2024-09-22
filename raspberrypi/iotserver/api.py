@@ -1,10 +1,12 @@
-from flask import Flask, request, jsonify
+from flask import (
+	Blueprint, request, jsonify
+)
 
-app = Flask(__name__)
+bp = Blueprint('api', __name__, url_prefix='/api')
 
-@app.route("/")
+@bp.route("/")
 def index():
-	return "<p>Iot Server</p>"
+	return "<p>Iot Server Api</p>"
 
 # Ejemplo de datos json
 #{
@@ -15,7 +17,7 @@ def index():
 
 # Endpoints de la API
 # Este endpoint maneja el método POST para subir los datos
-@app.post("/api/v1/upload")
+@bp.post("/v1/upload")
 def upload_post():
 	# Recupera el json enviado por el body
 	data = request.get_json()
@@ -48,6 +50,3 @@ def upload_post():
 
 # /api/v1/data/latest -> GET envia el último dato subido
 # /api/v1/data/all -> GET envia todos los datos
-
-if __name__ == "__main__":
-	app.run()
