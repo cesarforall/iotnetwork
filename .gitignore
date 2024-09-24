@@ -1,3 +1,4 @@
 /esp01/config.h
 /raspberrypi/.venv/
 /raspberrypi/iotserver/__pycache__/
+/raspberrypi/iotserver/instance/
