@@ -28,7 +28,7 @@ CREATE TABLE sensor (
 
 CREATE TABLE sensor_type (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT,
+    name TEXT
 );
 
 CREATE TABLE sensor_sensor_type (
@@ -45,7 +45,7 @@ CREATE TABLE measurements (
     sensor_type_id INTEGER,
     value REAL,
     timestamp DATETIME NOT NULL,
-    FOREIGN KEY (sensor_id) REFERENCES sensor (id) ON DELETE CASCADE
-    FOREIGN KEY (sensor_type_id) REFERENCES sensor_type (id) ON DELETE CASCADE
+    FOREIGN KEY (sensor_id) REFERENCES sensor (id) ON DELETE CASCADE,
+    FOREIGN KEY (sensor_type_id) REFERENCES sensor_type (id) ON DELETE CASCADE,
     UNIQUE (sensor_id, sensor_type_id, timestamp)
 )
